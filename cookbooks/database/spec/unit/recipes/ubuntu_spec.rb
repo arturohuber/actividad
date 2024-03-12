@@ -5,8 +5,8 @@ describe 'database::default' do
 
     before do
         puts "Running tests for Ubuntu 20.04 platform..."
-        stub_command('mysql -e "SHOW DATABASES;" | grep wordpress').and_return(false)
-        stub_command("mysql -e \"SELECT User, Host FROM mysql.user WHERE User = 'wordpress' AND Host = '127.0.0.1'\" | grep wordpress").and_return(false)
+        stub_command('mysql -e "SHOW DATABASES;" | grep wordpress').and_return(true)
+        stub_command("mysql -e \"SELECT User, Host FROM mysql.user WHERE User = 'wordpress' AND Host = '127.0.0.1'\" | grep wordpress").and_return(true)
         stub_command('::File.exist?("/etc/mysql/mysql.conf.d/mysqld.cnf")').and_return(true)
     end
 
